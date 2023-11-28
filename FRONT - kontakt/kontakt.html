@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="kontakt.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="kontakt.js"></script>
+    <script src="https://kit.fontawesome.com/cc3fdd91b9.js" crossorigin="anonymous"></script>
+    <title>Kontakt | SPORT NET</title>
+</head>
+<body>
+    <header>
+        <div id="header-container">
+            <img src="img/logo.png" id="logo" alt="logo našeg projekta, SPORT NET">
+
+            <button id="button-toggle-nav-items" onclick="toggle_nav_items()"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div id="header-search-bar-container">
+            <i id="header-search-bar-icon" class="fa-solid fa-magnifying-glass"></i>
+            <input placeholder="Pretražite artikle..." id="header-search-bar" onfocus="change_header_search_bar_icon()" onblur="revert_header_search_bar_icon()">
+        </div>
+    </header>
+    <nav>
+        <a href="#" class="nav-item">Početna</a>
+        <a href="#" class="nav-item">O nama</a>
+        <a href="#" class="nav-item active-nav-item">Kontakt</a>
+        <a href="#" class="nav-item-float-right"><i class="fa-solid fa-right-to-bracket"></i>Prijavite se</a>
+    </nav>
+    <div id="compact-nav" style="max-height: 0px;">
+        <a href="#" class="compact-nav-item">Početna</a>
+        <a href="#" class="compact-nav-item">O nama</a>
+        <a href="#" class="compact-nav-item active-nav-item">Kontakt</a>
+        <a href="#" class="compact-nav-item compact-nav-login"><i class="fa-solid fa-right-to-bracket"><span>Prijavite se</span></i></a>
+    </div>
+    <main>
+        <form id="contact-form">
+            <div class="contact-form-section">
+                <div class="contact-form-inner-flex" id="contact-form-inner-flex">
+                    <label for="ime">Ime</label>
+                    <input type="text" id="ime" placeholder="Zoran" required>
+                </div>
+                <div class="contact-form-inner-flex">
+                    <label for="prezime">Prezime</label>
+                    <input type="text" id="prezime" placeholder="Petrović" required>
+                </div>
+            </div>
+            <div class="contact-form-section contact-form-single-line-flex">
+                <label for="ime">Imejl</label>
+                <input type="text" id="imejl" placeholder="osoba@gimnazijalci.com" required style="position: relative;">
+            </div>
+            <div class="contact-form-single-line-flex">
+                <label for="lname">Razlog kontakta</label>
+                <textarea rows="4" cols="50" placeholder="Vaša poruka..."></textarea>
+            </div>
+            <br><br>
+            <button id="button-submit"><i class="fa-solid fa-paper-plane"></i>Pošalji</button>
+        </form>
+    </main>
+    <footer>
+        Napravio tim <span>Gimnazijalci</span> za [HZS 6.0]
+    </footer>
+</body>
+</html>

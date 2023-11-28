@@ -18,7 +18,7 @@ if(!isset($admin_id)){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Stranica za pretragu Clanaka</title>
+   <title>SPORT NET | Pretraga Članaka</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -33,10 +33,10 @@ if(!isset($admin_id)){
 
 section class="show-posts">
 
-<h1 class="heading">Vasi Clanci</h1>
+<h1 class="heading">Vaši Članci</h1>
 
 <form action="search_page.php" method="POST"; class="search-form">
-   <input type="text" placeholder="Pretrazite clanke..." required maxlenght="100" name="search_box">
+   <input type="text" placeholder="Pretrazite članke..." required maxlenght="100" name="search_box">
    <button class="fas fa-search" name="search_btn"></button>
 </form>
 
@@ -72,14 +72,14 @@ section class="show-posts">
       </div>
       <div class="flex-btn">
          <a href="edit_post.php?id=<?= $post_id; ?>" class="option-btn">Izmeni</a>
-         <button type="submit" name="delete" class="delete-btn" onclick="return confirm('delete this post?');">Obrisi</button>
+         <button type="submit" name="delete" class="delete-btn" onclick="return confirm('Da li želite da obrišete članak?');">Obriši</button>
       </div>
-      <a href="read_post.php?post_id=<?= $post_id; ?>" class="btn">Pregledajte clanke</a>
+      <a href="read_post.php?post_id=<?= $post_id; ?>" class="btn">Pregledajte članke</a>
    </form>
    <?php
          }
       }else{
-         echo '<p class="empty">Ni jedan clanak nije dodat! <a href="add_posts.php" class="btn" style="margin-top:1.5rem;">Dodajte clanak</a></p>';
+         echo '<p class="empty">Ni jedan članak nije dodat! <a href="add_posts.php" class="btn" style="margin-top:1.5rem;">Dodajte članak</a></p>';
       }
    ?>
 

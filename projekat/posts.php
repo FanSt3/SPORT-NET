@@ -20,7 +20,7 @@ include 'components/like_post.php';
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>posts</title>
+   <title>SPORT NET | Članci</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -34,7 +34,7 @@ include 'components/like_post.php';
 
 <section class="posts-container">
 
-   <h1 class="heading">Najnoviji clanci</h1>
+   <h1 class="heading">Najnoviji članci</h1>
 
    <div class="box-container">
 
@@ -77,7 +77,7 @@ include 'components/like_post.php';
          ?>
          <div class="post-title"><?= $fetch_posts['title']; ?></div>
          <div class="post-content content-150"><?= $fetch_posts['content']; ?></div>
-         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">Procitajte vise</a>
+         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">Pročitajte više</a>
          <a href="category.php?category=<?= $fetch_posts['category']; ?>" class="post-cat"> <i class="fas fa-tag"></i> <span><?= $fetch_posts['category']; ?></span></a>
          <div class="icons">
             <a href="view_post.php?post_id=<?= $post_id; ?>"><i class="fas fa-comment"></i><span>(<?= $total_post_comments; ?>)</span></a>
@@ -88,7 +88,7 @@ include 'components/like_post.php';
       <?php
          }
       }else{
-         echo '<p class="empty">no posts added yet!</p>';
+         echo '<p class="empty">Ni jedan članak nije dodat!</p>';
       }
       ?>
    </div>

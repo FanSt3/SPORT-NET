@@ -25,7 +25,7 @@ if(isset($_POST['save'])){
    $update_post = $conn->prepare("UPDATE `posts` SET title = ?, content = ?, category = ?, status = ? WHERE id = ?");
    $update_post->execute([$title, $content, $category, $status, $post_id]);
 
-   $message[] = 'Clanak Azuriran!';
+   $message[] = 'Članak Azuriran!';
    
    $old_image = $_POST['old_image'];
    $image = $_FILES['image']['name'];
@@ -39,9 +39,9 @@ if(isset($_POST['save'])){
 
    if(!empty($image)){
       if($image_size > 2000000){
-         $message[] = 'images size is too large!';
+         $message[] = 'Veličina slika je prevelika!';
       }elseif($select_image->rowCount() > 0 AND $image != ''){
-         $message[] = 'please rename your image!';
+         $message[] = 'Molimo preimenujte ime slike!';
       }else{
          $update_image = $conn->prepare("UPDATE `posts` SET image = ? WHERE id = ?");
          move_uploaded_file($image_tmp_name, $image_folder);
@@ -49,7 +49,7 @@ if(isset($_POST['save'])){
          if($old_image != $image AND $old_image != ''){
             unlink('../uploaded_img/'.$old_image);
          } 
-         $message[] = 'image updated!';
+         $message[] = 'Slika je ažurirana!';
       }
    }
 
@@ -70,7 +70,7 @@ if(isset($_POST['delete_post'])){
    $delete_post->execute([$post_id]);
    $delete_comments = $conn->prepare("DELETE FROM `comments` WHERE post_id = ?");
    $delete_comments->execute([$post_id]);
-   $message[] = 'Clanak uspesno obrisan!';
+   $message[] = 'Članak uspešno obrisan!';
 
 }
 
@@ -87,7 +87,7 @@ if(isset($_POST['delete_image'])){
    }
    $unset_image = $conn->prepare("UPDATE `posts` SET image = ? WHERE id = ?");
    $unset_image->execute([$empty_image, $post_id]);
-   $message[] = 'Slika uspesno obrisana!';
+   $message[] = 'Slika uspešno obrisana!';
 
 }
 
@@ -100,7 +100,7 @@ if(isset($_POST['delete_image'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Clanci</title>
+   <title>SPORT NET | Admin Članci</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -115,7 +115,7 @@ if(isset($_POST['delete_image'])){
 
 <section class="post-editor">
 
-   <h1 class="heading">Izmena Clanka</h1>
+   <h1 class="heading">Izmena Članka</h1>
 
    <?php
       $post_id = $_GET['id'];
@@ -127,77 +127,57 @@ if(isset($_POST['delete_image'])){
    <form action="" method="post" enctype="multipart/form-data">
       <input type="hidden" name="old_image" value="<?= $fetch_posts['image']; ?>">
       <input type="hidden" name="post_id" value="<?= $fetch_posts['id']; ?>">
-      <p>Status Clanka <span>*</span></p>
+      <p>Status Članka <span>*</span></p>
       <select name="status" class="box" required>
          <option value="<?= $fetch_posts['status']; ?>" selected><?= $fetch_posts['status']; ?></option>
          <option value="active">Aktivan</option>
          <option value="deactive">Neaktivan</option>
       </select>
-      <p>Naslov Clanka <span>*</span></p>
-      <input type="text" name="title" maxlength="100" required placeholder="Dodajte naslov clanka" class="box" value="<?= $fetch_posts['title']; ?>">
-      <p>Sadrzaj Clanka <span>*</span></p>
-      <textarea name="content" class="box" required maxlength="10000" placeholder="Napisite sadrzaj..." cols="30" rows="10"><?= $fetch_posts['content']; ?></textarea>
-      <p>Kategorija Clanka <span>*</span></p>
+      <p>Naslov Članka <span>*</span></p>
+      <input type="text" name="title" maxlength="100" required placeholder="Dodajte naslov članka" class="box" value="<?= $fetch_posts['title']; ?>">
+      <p>Sadržaj Članka <span>*</span></p>
+      <textarea name="content" class="box" required maxlength="10000" placeholder="Napišite sadrzaj..." cols="30" rows="10"><?= $fetch_posts['content']; ?></textarea>
+      <p>Kategorija Članka <span>*</span></p>
       <select name="category" class="box" required>
          <option value="<?= $fetch_posts['category']; ?>" selected><?= $fetch_posts['category']; ?></option>
-         <option value="nature">nature</option>
-         <option value="education">education</option>
-         <option value="pets and animals">pets and animals</option>
-         <option value="technology">technology</option>
-         <option value="fashion">fashion</option>
-         <option value="entertainment">entertainment</option>
-         <option value="movies and animations">movies</option>
-         <option value="gaming">gaming</option>
-         <option value="music">music</option>
-         <option value="sports">sports</option>
-         <option value="news">news</option>
-         <option value="travel">travel</option>
-         <option value="comedy">comedy</option>
-         <option value="design and development">design and development</option>
-         <option value="food and drinks">food and drinks</option>
-         <option value="lifestyle">lifestyle</option>
-         <option value="personal">personal</option>
-         <option value="health and fitness">health and fitness</option>
-         <option value="business">business</option>
-         <option value="shopping">shopping</option>
-         <option value="animations">animations</option>
+         <option value="fudbal">Fudbal</option>
+         <option value="košarka">Košarka</option>
+         <option value="tenis">Tenis</option>
+         <option value="odbojka">Odbojka</option>
+         <option value="rukomet">Rukomet</option>
+         <option value="vaterpolo">Vaterpolo</option>
+         <option value="auto-moto">Auto-Moto</option>
+         <option value="zimski sportovi">Zimski sportovi</option>
+         <option value="biciklizam">Biciklizam</option>
+         <option value="esports">Esport</option>
       </select>
       <p>Dodajte sliku</p>
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png, image/webp">
       <?php if($fetch_posts['image'] != ''){ ?>
          <img src="../uploaded_img/<?= $fetch_posts['image']; ?>" class="image" alt="">
-         <input type="submit" value="delete image" class="inline-delete-btn" name="delete_image">
+         <input type="submit" value="Obrišite sliku" class="inline-delete-btn" name="delete_image">
       <?php } ?>
       <div class="flex-btn">
-         <input type="submit" value="Sacuvaj promene" name="save" class="btn">
+         <input type="submit" value="Sačuvaj promene" name="save" class="btn">
          <a href="view_posts.php" class="option-btn">Nazad</a>
-         <input type="submit" value="Obrisi Clanak" class="delete-btn" name="delete_post">
+         <input type="submit" value="Obriši Članak" class="delete-btn" name="delete_post">
       </div>
    </form>
 
    <?php
          }
       }else{
-         echo '<p class="empty">Ni jedan clanak nije dodat!</p>';
+         echo '<p class="empty">Ni jedan članak nije dodat!</p>';
    ?>
    <div class="flex-btn">
-      <a href="view_posts.php" class="option-btn">Pregledajte clanke</a>
-      <a href="add_posts.php" class="option-btn">Dodajte clanak</a>
+      <a href="view_posts.php" class="option-btn">Pregledajte članke</a>
+      <a href="add_posts.php" class="option-btn">Dodajte članak</a>
    </div>
    <?php
       }
    ?>
 
 </section>
-
-
-
-
-
-
-
-
-
 
 <!-- custom js file link  -->
 <script src="../js/admin_script.js"></script>

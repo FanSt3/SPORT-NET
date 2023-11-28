@@ -26,7 +26,7 @@ include 'components/like_post.php';
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Autori</title>
+   <title>SPORT NET | Autori</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -85,7 +85,7 @@ include 'components/like_post.php';
          ?>
          <div class="post-title"><?= $fetch_posts['title']; ?></div>
          <div class="post-content content-150"><?= $fetch_posts['content']; ?></div>
-         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">Procitaj vise</a>
+         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">Pročitaj više</a>
          <div class="icons">
             <a href="view_post.php?post_id=<?= $post_id; ?>"><i class="fas fa-comment"></i><span>(<?= $total_post_comments; ?>)</span></a>
             <button type="submit" name="like_post"><i class="fas fa-heart" style="<?php if($confirm_likes->rowCount() > 0){ echo 'color:var(--red);'; } ?>  "></i><span>(<?= $total_post_likes; ?>)</span></button>
@@ -95,7 +95,7 @@ include 'components/like_post.php';
       <?php
          }
       }else{
-         echo '<p class="empty">Ni jedan clanak nije pronadjen od izabranog Autora!</p>';
+         echo '<p class="empty">Ni jedan članak nije pronađen od izabranog Autora!</p>';
       }
       ?>
    </div>

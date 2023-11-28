@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+img, i, br {
+    user-select: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a, button {
+    transition: background 150ms ease-in-out;
+}
+
+a:hover, button:hover {
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 2em;
+}
+
+#logo {
+    width: 130px;
+}
+
+#header-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1em;
+}
+
+#header-search-bar-container {
+    position: relative;
+    margin-left: auto;
+}
+
+#header-search-bar-icon {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 1;
+    margin-left: 1em;
+    font-size: 0.8rem;
+    pointer-events: none;
+    color: #C8C8C8;
+    transition: color 300ms ease;
+}
+
+*::placeholder {
+    color: #bfbfbf;
+    user-select: none;
+}
+
+#header-search-bar {
+    padding: 0.8em 0.8em 0.8em 3em;
+    font-size: 0.8rem;
+    font-weight: 300;
+    outline: 1px solid #E0E0E0;
+    transition: background 200ms ease-in-out, outline 200ms ease-in-out;
+}
+
+#header-search-bar:focus {
+    outline-color: #111111;
+}
+
+#button-toggle-nav-items {
+    display: none;
+    right: 1.3em;
+    padding: 0.7em;
+    font-size: 1.1rem;
+    color: #000000;
+    margin-left: auto;
+}
+
+nav {
+    top: 0;
+    display: flex;
+    align-items: stretch;
+    position: sticky;
+    padding: 0 2em;
+    background-color: #020a31;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 1em 1.3em;
+    font-size: 1rem;
+    color: #FFFFFF;
+    box-shadow: inset 0 0 0 0 #ffc72e;
+    transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.nav-item:hover {
+    background-color: #04177B;
+    box-shadow: inset 0 -5px 0 0 #ffc72e;
+}
+
+.active-nav-item {
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.nav-item-float-right {
+    padding: 0.8em 1.5em;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffc72e;
+    transition: box-shadow 500ms ease-in-out, color 500ms;
+    margin-left: auto;
+    outline: 2px solid #ffc72e;
+    box-shadow: inset 0 0 0 0 #ffc72e;
+}
+
+.nav-item-float-right i {
+    margin-right: 0.8em;
+}
+
+.nav-item-float-right:hover {
+    color: black;
+    box-shadow: inset 11em 0 0 0 #ffc72e;
+}
+
+#compact-nav {
+    z-index: 1;
+    max-height: 0px;
+    overflow: hidden;
+    background-color: #010941;
+    transition: max-height 1.5s, outline 500ms ease-in-out;
+}
+
+.compact-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 3em;
+    font-size: 1rem;
+    width: 100%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.compact-nav-item span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin-left: 0.8em;
+}
+
+.compact-nav-item:hover {
+    background-color: #071568;
+}
+
+.compact-nav-login {
+    color: #000000;
+    font-weight: 500;
+    background-color: #FFC72E;
+}
+
+.compact-nav-login:hover {
+    background-color: #e6a800;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+#contact-form {
+    padding: 3em;
+    box-shadow: #0000000A 0px 0px 50px 20px;
+}
+
+.contact-form-section, .contact-form-inner-flex, .contact-form-single-line-flex {
+    display: flex;
+}
+
+.contact-form-inner-flex:first-child {
+    margin-right: 1.5em;
+}
+
+.contact-form-section {
+    margin-bottom: 1.5em;
+}
+
+.contact-form-inner-flex {
+    flex-direction: column;
+}
+
+.contact-form-single-line-flex {
+    flex-direction: column;
+}
+
+#contact-form label {
+    margin-bottom: 0.5em;
+    color: #111111;
+    font-weight: 500;
+}
+
+#contact-form label::before {
+    content: "* ";
+    color: red;
+}
+
+#contact-form input, #contact-form textarea {
+    font-weight: 300;
+    padding: 1em 1.5em;
+    outline: 1px solid #E0E0E0;
+    transition: outline 200ms ease-in-out;
+}
+
+#contact-form textarea {
+    resize: vertical;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    outline-color: #111111;
+}
+
+#button-submit {
+    color: #FFFFFF;
+    background-color: #010941;
+    font-weight: 600;
+    padding: 1em;
+    width: 100%;
+    transition: background 300ms ease-in-out;
+}
+
+#button-submit i {
+    margin-right: 0.8em;
+}
+
+#button-submit:hover {
+    background-color: #04177B;
+    cursor: pointer;
+}
+
+footer {
+    padding: 0.5em 2em;
+    font-size: 1rem;
+    color: #C0C0C0;
+    background-color: #000000;
+    text-align: center;
+}
+
+footer span {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+@media only screen and (min-width: 450px) {
+    #banner {
+        font-size: 0.9rem;
+    }
+
+    #logo {
+        width: 200px;
+    }
+
+    #button-toggle-nav-items {
+        font-size: 1.7rem;
+    }
+    
+    #header-container {
+        margin-bottom: 2em;
+    }
+
+    #header-search-bar {
+        font-size: 1rem;
+    }
+
+    #header-search-bar-icon {
+        margin-left: 1.3em;
+    }
+
+    .compact-nav-item {
+        font-size: 1.3rem;
+    }
+
+    #contact-form label {
+        font-size: 0.8rem;
+    }
+    
+    #contact-form input, #contact-form textarea {
+        font-size: 0.8rem;
+    }
+    
+    #button-submit {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 4em 3em 8em 3em;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    header {
+        flex-direction: row;
+    }
+
+    #header-container {
+        margin-bottom: 0px;
+    }
+    
+    #compact-nav {
+        display: none;
+    }
+
+    #logo {
+        width: 250px;
+    }
+
+    .compact-nav-item {
+        font-size: 1.3rem;
+    }
+
+    #contact-form label {
+        font-size: 1.6rem;
+    }
+    
+    #contact-form input, #contact-form textarea {
+        font-size: 1.6rem;
+    }
+    
+    #button-submit {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 4em 0 8em 0em;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    #button-toggle-nav-items {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+    }
+
+    #header-search-bar-container, #header-search-bar {
+        width: 100%;
+    }
+
+    #contact-form {
+        width: 100%;
+    }
+
+    .contact-form-section {
+        flex-direction: column;
+        margin-right: 0;
+    }
+
+    #ime {
+        margin-bottom: 1.5em;
+    }
+
+    #contact-form-inner-flex:first-child {
+        margin-right: 0px;
+    }
+}

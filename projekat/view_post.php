@@ -27,11 +27,11 @@ if(isset($_POST['add_comment'])){
    $verify_comment->execute([$get_id, $admin_id, $user_id, $user_name, $comment]);
 
    if($verify_comment->rowCount() > 0){
-      $message[] = 'comment already added!';
+      $message[] = 'Komentar je već dodat!';
    }else{
       $insert_comment = $conn->prepare("INSERT INTO `comments`(post_id, admin_id, user_id, user_name, comment) VALUES(?,?,?,?,?)");
       $insert_comment->execute([$get_id, $admin_id, $user_id, $user_name, $comment]);
-      $message[] = 'new comment added!';
+      $message[] = 'Novi komentar je uspešno dodat!';
    }
 
 }
@@ -46,11 +46,11 @@ if(isset($_POST['edit_comment'])){
    $verify_comment->execute([$comment_edit_box, $edit_comment_id]);
 
    if($verify_comment->rowCount() > 0){
-      $message[] = 'comment already added!';
+      $message[] = 'Komentar je već dodat!';
    }else{
       $update_comment = $conn->prepare("UPDATE `comments` SET comment = ? WHERE id = ?");
       $update_comment->execute([$comment_edit_box, $edit_comment_id]);
-      $message[] = 'your comment edited successfully!';
+      $message[] = 'Uspešno ste izmenili komentar!';
    }
 }
 
@@ -59,7 +59,7 @@ if(isset($_POST['delete_comment'])){
    $delete_comment_id = filter_var($delete_comment_id, FILTER_SANITIZE_STRING);
    $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
    $delete_comment->execute([$delete_comment_id]);
-   $message[] = 'comment deleted successfully!';
+   $message[] = 'Komentar uspešno obrisan!';
 }
 
 ?>
@@ -71,7 +71,7 @@ if(isset($_POST['delete_comment'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>view post</title>
+   <title>SPORT NET | Pregled Članaka</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -92,7 +92,7 @@ if(isset($_POST['delete_comment'])){
    $comment_id = filter_var($comment_id, FILTER_SANITIZE_STRING);
 ?>
    <section class="comment-edit-form">
-   <p>edit your comment</p>
+   <p>Izmenite vaš komentar</p>
    <?php
       $select_edit_comment = $conn->prepare("SELECT * FROM `comments` WHERE id = ?");
       $select_edit_comment->execute([$comment_id]);
@@ -100,8 +100,8 @@ if(isset($_POST['delete_comment'])){
    ?>
    <form action="" method="POST">
       <input type="hidden" name="edit_comment_id" value="<?= $comment_id; ?>">
-      <textarea name="comment_edit_box" required cols="30" rows="10" placeholder="please enter your comment"><?= $fetch_edit_comment['comment']; ?></textarea>
-      <button type="submit" class="inline-btn" name="edit_comment">edit comment</button>
+      <textarea name="comment_edit_box" required cols="30" rows="10" placeholder="Molimo unesite vaš komentar"><?= $fetch_edit_comment['comment']; ?></textarea>
+      <button type="submit" class="inline-btn" name="edit_comment">Izmenite komentar</button>
       <div class="inline-option-btn" onclick="window.location.href = 'view_post.php?post_id=<?= $get_id; ?>';">cancel edit</div>
    </form>
    </section>
@@ -162,7 +162,7 @@ if(isset($_POST['delete_comment'])){
       <?php
          }
       }else{
-         echo '<p class="empty">no posts found!</p>';
+         echo '<p class="empty">Ni jedan članak nije pronađen!</p>';
       }
       ?>
    </div>
@@ -171,7 +171,7 @@ if(isset($_POST['delete_comment'])){
 
 <section class="comments-container">
 
-   <p class="comment-title">add comment</p>
+   <p class="comment-title">Dodajte komentar</p>
    <?php
       if($user_id != ''){  
          $select_admin_id = $conn->prepare("SELECT * FROM `posts` WHERE id = ?");
@@ -189,14 +189,14 @@ if(isset($_POST['delete_comment'])){
    }else{
    ?>
    <div class="add-comment">
-      <p>please login to add or edit your comment</p>
-      <a href="login.php" class="inline-btn">login now</a>
+      <p>Molimo prijavite se da biste dodali komentar</p>
+      <a href="login.php" class="inline-btn">Prijavite se</a>
    </div>
    <?php
       }
    ?>
    
-   <p class="comment-title">post comments</p>
+   <p class="comment-title">Komentari članka</p>
    <div class="user-comments-container">
       <?php
          $select_comments = $conn->prepare("SELECT * FROM `comments` WHERE post_id = ?");
@@ -218,8 +218,8 @@ if(isset($_POST['delete_comment'])){
          ?>
          <form action="" method="POST">
             <input type="hidden" name="comment_id" value="<?= $fetch_comments['id']; ?>">
-            <button type="submit" class="inline-option-btn" name="open_edit_box">edit comment</button>
-            <button type="submit" class="inline-delete-btn" name="delete_comment" onclick="return confirm('delete this comment?');">delete comment</button>
+            <button type="submit" class="inline-option-btn" name="open_edit_box">Izmeni Komentar</button>
+            <button type="submit" class="inline-delete-btn" name="delete_comment" onclick="return confirm('Da li želite da obrišete komentar?');">Obrišite komentar</button>
          </form>
          <?php
          }
@@ -228,7 +228,7 @@ if(isset($_POST['delete_comment'])){
       <?php
             }
          }else{
-            echo '<p class="empty">no comments added yet!</p>';
+            echo '<p class="empty">Ni jedan komentar nije dodat!</p>';
          }
       ?>
    </div>

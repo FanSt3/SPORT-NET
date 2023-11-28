@@ -36,7 +36,7 @@ if(isset($_POST['delete_comment'])){
    $comment_id = filter_var($comment_id, FILTER_SANITIZE_STRING);
    $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
    $delete_comment->execute([$comment_id]);
-   $message[] = 'comment delete!';
+   $message[] = 'Komentar uspešno obrisan!';
 
 }
 
@@ -48,7 +48,7 @@ if(isset($_POST['delete_comment'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>posts</title>
+   <title>SPORT NET | Članci</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -93,14 +93,14 @@ if(isset($_POST['delete_comment'])){
       </div>
       <div class="flex-btn">
          <a href="edit_post.php?id=<?= $post_id; ?>" class="inline-option-btn">Izmenite</a>
-         <button type="submit" name="delete" class="inline-delete-btn" onclick="return confirm('Da li zelite da obrisete clanak?');">Obrisi</button>
+         <button type="submit" name="delete" class="inline-delete-btn" onclick="return confirm('Da li želite da obrišete članak?');">Obriši</button>
          <a href="view_posts.php" class="inline-option-btn">Nazad</a>
       </div>
    </form>
    <?php
          }
       }else{
-         echo '<p class="empty">Ni jedan clanak nije dodat! <a href="add_posts.php" class="btn" style="margin-top:1.5rem;">add post</a></p>';
+         echo '<p class="empty">Ni jedan članak nije dodat! <a href="add_posts.php" class="btn" style="margin-top:1.5rem;">Dodajte Članak</a></p>';
       }
    ?>
 
@@ -108,7 +108,7 @@ if(isset($_POST['delete_comment'])){
 
 <section class="comments" style="padding-top: 0;">
    
-   <p class="comment-title">Komentari clanka</p>
+   <p class="comment-title">Komentari članka</p>
    <div class="box-container">
    <?php
          $select_comments = $conn->prepare("SELECT * FROM `comments` WHERE post_id = ?");

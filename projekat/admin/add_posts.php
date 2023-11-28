@@ -33,9 +33,9 @@ if(isset($_POST['publish'])){
 
    if(isset($image)){
       if($select_image->rowCount() > 0 AND $image != ''){
-         $message[] = 'image name repeated!';
+         $message[] = 'Slika je već dodata!';
       }elseif($image_size > 2000000){
-         $message[] = 'images size is too large!';
+         $message[] = 'Veličina slika je prevelika!';
       }else{
          move_uploaded_file($image_tmp_name, $image_folder);
       }
@@ -48,7 +48,7 @@ if(isset($_POST['publish'])){
    }else{
       $insert_post = $conn->prepare("INSERT INTO `posts`(admin_id, name, title, content, category, image, status) VALUES(?,?,?,?,?,?,?)");
       $insert_post->execute([$admin_id, $name, $title, $content, $category, $image, $status]);
-      $message[] = 'Clanak objavljen!';
+      $message[] = 'Članak objavljen!';
    }
    
 }
@@ -76,9 +76,9 @@ if(isset($_POST['draft'])){
 
    if(isset($image)){
       if($select_image->rowCount() > 0 AND $image != ''){
-         $message[] = 'image name repeated!';
+         $message[] = 'Slika je već dodata!';
       }elseif($image_size > 2000000){
-         $message[] = 'images size is too large!';
+         $message[] = 'Veličina slika je prevelika!';
       }else{
          move_uploaded_file($image_tmp_name, $image_folder);
       }
@@ -91,7 +91,7 @@ if(isset($_POST['draft'])){
    }else{
       $insert_post = $conn->prepare("INSERT INTO `posts`(admin_id, name, title, content, category, image, status) VALUES(?,?,?,?,?,?,?)");
       $insert_post->execute([$admin_id, $name, $title, $content, $category, $image, $status]);
-      $message[] = 'draft saved!';
+      $message[] = 'Draft sačuvan!';
    }
 
 }
@@ -104,7 +104,7 @@ if(isset($_POST['draft'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Clanci</title>
+   <title>SPORT NET | Članci </title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -120,44 +120,33 @@ if(isset($_POST['draft'])){
 
 <section class="post-editor">
 
-   <h1 class="heading">Dodaj novi clanak</h1>
+   <h1 class="heading">Dodaj novi članak</h1>
 
    <form action="" method="post" enctype="multipart/form-data">
       <input type="hidden" name="name" value="<?= $fetch_profile['name']; ?>">
-      <p>Naslov Clanka <span>*</span></p>
-      <input type="text" name="title" maxlength="100" required placeholder="Dodajte naslov clanka" class="box">
-      <p>Sadrzaj clanka <span>*</span></p>
-      <textarea name="content" class="box" required maxlength="10000" placeholder="Napisite sadrzaj..." cols="30" rows="10"></textarea>
-      <p>Kategorija clanka <span>*</span></p>
+      <p>Naslov Članka <span>*</span></p>
+      <input type="text" name="title" maxlength="100" required placeholder="Dodajte naslov članka" class="box">
+      <p>Sadržaj članka <span>*</span></p>
+      <textarea name="content" class="box" required maxlength="10000" placeholder="Napišite sadržaj..." cols="30" rows="10"></textarea>
+      <p>Kategorija članka <span>*</span></p>
       <select name="category" class="box" required>
          <option value="" selected disabled>-- Izaberite Kategoriju* </option>
-         <option value="nature">nature</option>
-         <option value="education">education</option>
-         <option value="pets and animals">pets and animals</option>
-         <option value="technology">technology</option>
-         <option value="fashion">fashion</option>
-         <option value="entertainment">entertainment</option>
-         <option value="movies and animations">movies</option>
-         <option value="gaming">gaming</option>
-         <option value="music">music</option>
-         <option value="sports">sports</option>
-         <option value="news">news</option>
-         <option value="travel">travel</option>
-         <option value="comedy">comedy</option>
-         <option value="design and development">design and development</option>
-         <option value="food and drinks">food and drinks</option>
-         <option value="lifestyle">lifestyle</option>
-         <option value="personal">personal</option>
-         <option value="health and fitness">health and fitness</option>
-         <option value="business">business</option>
-         <option value="shopping">shopping</option>
-         <option value="animations">animations</option>
+         <option value="fudbal">Fudbal</option>
+         <option value="košarka">Košarka</option>
+         <option value="tenis">Tenis</option>
+         <option value="odbojka">Odbojka</option>
+         <option value="rukomet">Rukomet</option>
+         <option value="vaterpolo">Vaterpolo</option>
+         <option value="auto-moto">Auto-Moto</option>
+         <option value="zmiski sportovi">Zimski Sportovi</option>
+         <option value="biciklizam">Biciklizam</option>
+         <option value="esports">Esport</option>
       </select>
       <p>Dodajte sliku</p>
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png, image/webp">
       <div class="flex-btn">
-         <input type="submit" value="Objavi Clanak" name="publish" class="btn">
-         <input type="submit" value="Sacuvaj Draft" name="draft" class="option-btn">
+         <input type="submit" value="Objavi Članak" name="publish" class="btn">
+         <input type="submit" value="Sačuvaj Draft" name="draft" class="option-btn">
       </div>
    </form>
 

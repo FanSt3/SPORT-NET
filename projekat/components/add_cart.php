@@ -21,11 +21,11 @@ if(isset($_POST['add_to_cart'])){
    $check_cart_numbers->execute([$user_id, $name]);
 
    if($check_cart_numbers->rowCount() > 0){
-      $message[] = 'already addded to cart!';
+      $message[] = 'Već dodat u korpu!';
    }else{
       $insert_cart = $conn->prepare("INSERT INTO `cart`(user_id, pid, name, price, quantity, image) VALUES(?,?,?,?,?,?)");
       $insert_cart->execute([$user_id, $pid, $name, $price, $qty, $image]);
-      $message[] = 'added to cart!';
+      $message[] = 'Dodato u korpu!';
    }
 }
 

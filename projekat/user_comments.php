@@ -36,7 +36,7 @@ if(isset($_POST['delete_comment'])){
    $delete_comment_id = filter_var($delete_comment_id, FILTER_SANITIZE_STRING);
    $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
    $delete_comment->execute([$delete_comment_id]);
-   $message[] = 'Uspesno obrisan komentar!';
+   $message[] = 'Uspešno obrisan komentar!';
 }
 
 ?>
@@ -47,7 +47,7 @@ if(isset($_POST['delete_comment'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update profile</title>
+   <title>SPORT NET | Komentari</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -68,7 +68,7 @@ if(isset($_POST['delete_comment'])){
    $comment_id = filter_var($comment_id, FILTER_SANITIZE_STRING);
 ?>
    <section class="comment-edit-form">
-   <p>Izmenite vas komentar</p>
+   <p>Izmenite vaš komentar</p>
    <?php
       $select_edit_comment = $conn->prepare("SELECT * FROM `comments` WHERE id = ?");
       $select_edit_comment->execute([$comment_id]);
@@ -87,9 +87,9 @@ if(isset($_POST['delete_comment'])){
 
 <section class="comments-container">
 
-   <h1 class="heading">Vasi komentari</h1>
+   <h1 class="heading">Vaši komentari</h1>
 
-   <p class="comment-title">Vasi komentari na clanku</p>
+   <p class="comment-title">Vaši komentari na članku</p>
    <div class="user-comments-container">
       <?php
          $select_comments = $conn->prepare("SELECT * FROM `comments` WHERE user_id = ?");
@@ -103,7 +103,7 @@ if(isset($_POST['delete_comment'])){
             $select_posts->execute([$fetch_comments['post_id']]);
             while($fetch_posts = $select_posts->fetch(PDO::FETCH_ASSOC)){
          ?>
-         <div class="post-title"> od : <span><?= $fetch_posts['title']; ?></span> <a href="view_post.php?post_id=<?= $fetch_posts['id']; ?>" >Pregledajte clanak</a></div>
+         <div class="post-title"> od : <span><?= $fetch_posts['title']; ?></span> <a href="view_post.php?post_id=<?= $fetch_posts['id']; ?>" >Pregledajte članak</a></div>
          <?php
             }
          ?>
@@ -111,7 +111,7 @@ if(isset($_POST['delete_comment'])){
          <form action="" method="POST">
             <input type="hidden" name="comment_id" value="<?= $fetch_comments['id']; ?>">
             <button type="submit" class="inline-option-btn" name="open_edit_box">Izmeni komentar</button>
-            <button type="submit" class="inline-delete-btn" name="delete_comment" onclick="return confirm('Da li zelite da obrisete komentar?');">Obrisi komentar</button>
+            <button type="submit" class="inline-delete-btn" name="delete_comment" onclick="return confirm('Da li želite da obrišete komentar?');">Obriši komentar</button>
          </form>
       </div>
       <?php

@@ -21,7 +21,7 @@ include 'components/like_post.php';
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update profile</title>
+   <title>SPORT NET | Sviđanja</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -38,7 +38,7 @@ include 'components/like_post.php';
 
 <section class="posts-container">
 
-   <h1 class="heading">Clanci koji vam se svidjaju</h1>
+   <h1 class="heading">Članci koji vam se sviđaju</h1>
 
    <div class="box-container">
 
@@ -83,7 +83,7 @@ include 'components/like_post.php';
          ?>
          <div class="post-title"><?= $fetch_posts['title']; ?></div>
          <div class="post-content content-150"><?= $fetch_posts['content']; ?></div>
-         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">Procitajte vise</a>
+         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">Pročitajte više</a>
          <div class="icons">
             <a href="view_post.php?post_id=<?= $post_id; ?>"><i class="fas fa-comment"></i><span>(<?= $total_post_likes; ?>)</span></a>
             <button type="submit" name="like_post"><i class="fas fa-heart" style="<?php if($total_post_likes > 0 AND $user_id != ''){ echo 'color:red;'; }; ?>"></i><span>(<?= $total_post_likes; ?>)</span></button>
@@ -94,11 +94,11 @@ include 'components/like_post.php';
                }
             }
          }else{
-            echo '<p class="empty">Nije pronadjen ni jedan clanak pod ovom kategorijom!</p>';
+            echo '<p class="empty">Nije pronađen ni jedan članak pod ovom kategorijom!</p>';
          }
          }
       }else{
-         echo '<p class="empty">Clanci koji vam se dopadaju nisu dostupani!</p>';
+         echo '<p class="empty">Članci koji vam se dopadaju nisu dostupani!</p>';
       }
       ?>
    </div>

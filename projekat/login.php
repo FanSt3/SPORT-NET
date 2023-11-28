@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
       $_SESSION['user_id'] = $row['id'];
       header('location:home.php');
    }else{
-      $message[] = 'Pogresna email adresa ili lozinka!';
+      $message[] = 'Pogrešna email adresa ili lozinka!';
    }
 
 }
@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>login</title>
+   <title>SPORT NET | Prijava</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -57,9 +57,9 @@ if(isset($_POST['submit'])){
 
    <form action="" method="post">
       <h3>Prijava</h3>
-      <input type="email" name="email" required placeholder="Upisite vas email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" required placeholder="Upisite vasu lozinku" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="login now" name="submit" class="btn">
+      <input type="email" name="email" required placeholder="Upišite vaš email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="pass" required placeholder="Upišite vašu lozinku" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="submit" value="Prijavite se" name="submit" class="btn">
       <p>Nemate nalog? <a href="register.php">Registrujte se</a></p>
    </form>
 

@@ -20,7 +20,7 @@ include 'components/like_post.php';
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>home page</title>
+   <title>SPORT NET | Početna Stranica</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -49,11 +49,11 @@ include 'components/like_post.php';
                $count_user_likes->execute([$user_id]);
                $total_user_likes = $count_user_likes->rowCount();
          ?>
-         <p> Dobrodosao/la <span><?= $fetch_profile['name']; ?></span></p>
+         <p> Dobrodošao/la <span><?= $fetch_profile['name']; ?></span></p>
          <p>Ukupan broj komentara : <span><?= $total_user_comments; ?></span></p>
-         <p>Svidjanja na clanku: <span><?= $total_user_likes; ?></span></p>
+         <p>Sviđanja na članku: <span><?= $total_user_likes; ?></span></p>
          <div class="flex-btn">
-            <a href="user_likes.php" class="option-btn">Svidjanja</a>
+            <a href="user_likes.php" class="option-btn">Sviđanje</a>
             <a href="user_comments.php" class="option-btn">Komentari</a>
          </div>
          <?php
@@ -72,17 +72,16 @@ include 'components/like_post.php';
       <div class="box">
          <p>Kategorije</p>
          <div class="flex-box">
-            <a href="category.php?category=nature" class="links">nature</a>
-            <a href="category.php?category=education" class="links">education</a>
-            <a href="category.php?category=business" class="links">business</a>
-            <a href="category.php?category=travel" class="links">travel</a>
-            <a href="category.php?category=news" class="links">news</a>
-            <a href="category.php?category=gaming" class="links">gaming</a>
-            <a href="category.php?category=sports" class="links">sports</a>
-            <a href="category.php?category=design" class="links">design</a>
-            <a href="category.php?category=fashion" class="links">fashion</a>
-            <a href="category.php?category=persional" class="links">persional</a>
-            <a href="all_category.php" class="btn">view all</a>
+            <a href="category.php?category=fudbal" class="links">Fudbal</a>
+            <a href="category.php?category=košarka" class="links">Košarka</a>
+            <a href="category.php?category=tenis" class="links">Tenis</a>
+            <a href="category.php?category=odbojka" class="links">Odbojka</a>
+            <a href="category.php?category=rukomet" class="links">Rukomet</a>
+            <a href="category.php?category=vaterpolo" class="links">Vaterpolo</a>
+            <a href="category.php?category=auto-moto" class="links">Auto-Moto</a>
+            <a href="category.php?category=zimski sportovi" class="links">Zimski sportovi</a>
+            <a href="category.php?category=biciklizam" class="links">Biciklizam</a>
+            <a href="category.php?category=esports" class="links">Esport</a>
          </div>
       </div>
 
@@ -99,7 +98,7 @@ include 'components/like_post.php';
             <?php
             }
          }else{
-            echo '<p class="empty">no posts added yet!</p>';
+            echo '<p class="empty">Ni jedan članak nije dodat!</p>';
          }
          ?>  
          <a href="authors.php" class="btn">Pregledajte sve</a>
@@ -112,7 +111,7 @@ include 'components/like_post.php';
 
 <section class="posts-container">
 
-   <h1 class="heading">Najnoviji clanci</h1>
+   <h1 class="heading">Najnoviji članci</h1>
 
    <div class="box-container">
 
@@ -155,7 +154,7 @@ include 'components/like_post.php';
          ?>
          <div class="post-title"><?= $fetch_posts['title']; ?></div>
          <div class="post-content content-150"><?= $fetch_posts['content']; ?></div>
-         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">Procitajte vise</a>
+         <a href="view_post.php?post_id=<?= $post_id; ?>" class="inline-btn">Pročitajte više</a>
          <a href="category.php?category=<?= $fetch_posts['category']; ?>" class="post-cat"> <i class="fas fa-tag"></i> <span><?= $fetch_posts['category']; ?></span></a>
          <div class="icons">
             <a href="view_post.php?post_id=<?= $post_id; ?>"><i class="fas fa-comment"></i><span>(<?= $total_post_comments; ?>)</span></a>
@@ -166,13 +165,13 @@ include 'components/like_post.php';
       <?php
          }
       }else{
-         echo '<p class="empty">Ni jedan clanak nije objavljen!</p>';
+         echo '<p class="empty">Ni jedan članak nije objavljen!</p>';
       }
       ?>
    </div>
 
    <div class="more-btn" style="text-align: center; margin-top:1rem;">
-      <a href="posts.php" class="inline-btn">Pregledajte sve clanke</a>
+      <a href="posts.php" class="inline-btn">Pregledajte sve članke</a>
    </div>
 
 </section>

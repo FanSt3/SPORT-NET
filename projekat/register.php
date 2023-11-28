@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
    $row = $select_user->fetch(PDO::FETCH_ASSOC);
 
    if($select_user->rowCount() > 0){
-      $message[] = 'Uneta email adresa je vec zauzeta!';
+      $message[] = 'Uneta email adresa je već zauzeta!';
    }else{
       if($pass != $cpass){
          $message[] = 'Lozinke se ne poklapaju!';
@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
+   <title>SPORT NET | Registracija</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -72,12 +72,12 @@ if(isset($_POST['submit'])){
 
    <form action="" method="post">
       <h3>Registracija</h3>
-      <input type="text" name="name" required placeholder="Upisite vase ime" class="box" maxlength="50">
-      <input type="email" name="email" required placeholder="Upisite vas email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" required placeholder="Upisite zeljenu lozinku" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="name" required placeholder="Upišite vaše ime" class="box" maxlength="50">
+      <input type="email" name="email" required placeholder="Upišite vaš email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="pass" required placeholder="Upišite željenu lozinku" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" required placeholder="Ponovite lozinku" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="register now" name="submit" class="btn">
-      <p>Vec posedujete nalog? <a href="login.php">Prijavite se</a></p>
+      <input type="submit" value="Registrujte se" name="submit" class="btn">
+      <p>Već posedujete nalog? <a href="login.php">Prijavite se</a></p>
    </form>
 
 </section>

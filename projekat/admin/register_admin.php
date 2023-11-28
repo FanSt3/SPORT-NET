@@ -23,14 +23,14 @@ if(isset($_POST['submit'])){
    $select_admin->execute([$name]);
    
    if($select_admin->rowCount() > 0){
-      $message[] = 'Nalog sa unetim korisnickim imenom vec postoji!';
+      $message[] = 'Nalog sa unetim korisničkim imenom već postoji!';
    }else{
       if($pass != $cpass){
-         $message[] = 'Unete sifre se ne poklapaju!';
+         $message[] = 'Unete šifre se ne poklapaju!';
       }else{
          $insert_admin = $conn->prepare("INSERT INTO `admin`(name, password) VALUES(?,?)");
          $insert_admin->execute([$name, $cpass]);
-         $message[] = 'Novi admin je uspesno registrovan!';
+         $message[] = 'Novi admin je uspešno registrovan!';
       }
    }
 
@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Stranica za Registraciju Admina</title>
+   <title>SPORT NET | Registracija Admina</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -63,8 +63,8 @@ if(isset($_POST['submit'])){
 
    <form action="" method="POST">
       <h3>Registrujte se</h3>
-      <input type="text" name="name" maxlength="20" required placeholder="Unesite zeljeno korisnicko ime" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" maxlength="20" required placeholder="Unesite zeljenu lozinku" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="name" maxlength="20" required placeholder="Unesite željeno korisničko ime" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="pass" maxlength="20" required placeholder="Unesite željenu lozinku" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" maxlength="20" required placeholder="Potvrdite lozinku" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="Registrujte se" name="submit" class="btn">
    </form>
@@ -72,21 +72,6 @@ if(isset($_POST['submit'])){
 </section>
 
 <!-- Sekcija za Registraciju Admina se ZAVRSAVA  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- custom js file link  -->
 <script src="../js/admin_script.js"></script>

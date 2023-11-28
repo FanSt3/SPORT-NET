@@ -20,7 +20,7 @@ include 'components/like_post.php';
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Autori</title>
+   <title>SPORT NET | Autori</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -63,15 +63,15 @@ include 'components/like_post.php';
    ?>
    <div class="box">
       <p>Autor : <span><?= $fetch_authors['name']; ?></span></p>
-      <p>Ukupno clanaka : <span><?= $total_admin_posts; ?></span></p>
-      <p>Svidjanja na clancima : <span><?= $total_admin_likes; ?></span></p>
-      <p>Broj komentara na Clancima : <span><?= $total_admin_comments; ?></span></p>
-      <a href="author_posts.php?author=<?= $fetch_authors['name']; ?>" class="btn">Pregledajte clanke</a>
+      <p>Ukupno članaka : <span><?= $total_admin_posts; ?></span></p>
+      <p>Sviđanja na člancima : <span><?= $total_admin_likes; ?></span></p>
+      <p>Broj komentara na člancima : <span><?= $total_admin_comments; ?></span></p>
+      <a href="author_posts.php?author=<?= $fetch_authors['name']; ?>" class="btn">Pregledajte članke</a>
    </div>
    <?php
       }
    }else{
-      echo '<p class="empty">no authors found</p>';
+      echo '<p class="empty">Ni jedan autor nije pronađen</p>';
    }
    ?>
 

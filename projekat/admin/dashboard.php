@@ -18,7 +18,7 @@ if(!isset($admin_id)){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>dashboard</title>
+   <title>SPORT NET | Admin Panel Dashboard</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -39,9 +39,9 @@ if(!isset($admin_id)){
     <div class="box-container">
 
         <div class="box">
-            <h3>Dobrodosao/la</h3>
+            <h3>Dobrodošao/la</h3>
             <p><?= $fetch_profile['name']; ?></p>
-            <a href="update_profile.php" class="btn">Azurirajte nalog</a>
+            <a href="update_profile.php" class="btn">Ažurirajte nalog</a>
         </div>
 
         <div class="box">
@@ -51,8 +51,8 @@ if(!isset($admin_id)){
                 $number_of_posts = $select_posts->rowCount();
             ?>
             <h3><?= $number_of_posts; ?></h3>
-            <p>Ukupno dodatih clanaka</p>
-            <a href="add_posts.php" class="btn">Dodajte novi clanak</a>
+            <p>Ukupno dodatih članaka</p>
+            <a href="add_posts.php" class="btn">Dodajte novi članak</a>
         </div>
 
         <div class="box">
@@ -62,8 +62,8 @@ if(!isset($admin_id)){
                 $number_of_active_posts = $select_active_posts->rowCount();
             ?>
             <h3><?= $number_of_active_posts; ?></h3>
-            <p>Aktivni clanci</p>
-            <a href="view_posts.php" class="btn">Preglejdate clanke</a>
+            <p>Aktivni članci</p>
+            <a href="view_posts.php" class="btn">Preglejdate članke</a>
         </div>
 
         <div class="box">
@@ -73,8 +73,8 @@ if(!isset($admin_id)){
                 $number_of_active_posts = $select_active_posts->rowCount();
             ?>
             <h3><?= $number_of_active_posts; ?></h3>
-            <p>Neaktivni clanci</p>
-            <a href="view_posts.php" class="btn">Preglejdate clanke</a>
+            <p>Neaktivni članci</p>
+            <a href="view_posts.php" class="btn">Preglejdate članke</a>
         </div>
 
         <div class="box">
@@ -95,7 +95,7 @@ if(!isset($admin_id)){
                 $number_of_admins = $select_active_posts->rowCount();
             ?>
             <h3><?= $number_of_posts; ?></h3>
-            <p>Ukupno korisnika</p>
+            <p>Ukupno administratora</p>
             <a href="admin_accounts.php" class="btn">Pregledajte administratore</a>
         </div>
 
@@ -117,8 +117,8 @@ if(!isset($admin_id)){
                 $number_of_likes = $select_active_posts->rowCount();
             ?>
             <h3><?= $number_of_likes; ?></h3>
-            <p>Broj Svidjanja</p>
-            <a href="admin_account.php" class="btn">Pregledajte clanke</a>
+            <p>Broj Sviđanja</p>
+            <a href="admin_account.php" class="btn">Pregledajte članke</a>
         </div>
 
 

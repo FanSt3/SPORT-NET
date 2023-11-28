@@ -35,7 +35,7 @@ if(isset($_POST['delete'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>admins accounts</title>
+   <title>SPORT NET | Admin Nalozi</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -52,14 +52,9 @@ if(isset($_POST['delete'])){
 
 <section class="accounts">
 
-   <h1 class="heading">admins account</h1>
+   <h1 class="heading">Admin nalozi</h1>
 
    <div class="box-container">
-
-   <div class="box" style="order: -2;">
-      <p>register new admin</p>
-      <a href="register_admin.php" class="option-btn" style="margin-bottom: .5rem;">register</a>
-   </div>
 
    <?php
       $select_account = $conn->prepare("SELECT * FROM `admin`");
@@ -73,17 +68,17 @@ if(isset($_POST['delete'])){
 
    ?>
    <div class="box" style="order: <?php if($fetch_accounts['id'] == $admin_id){ echo '-1'; } ?>;">
-      <p> admin id : <span><?= $fetch_accounts['id']; ?></span> </p>
-      <p> username : <span><?= $fetch_accounts['name']; ?></span> </p>
-      <p> total posts : <span><?= $total_admin_posts; ?></span> </p>
+      <p> ID Admina : <span><?= $fetch_accounts['id']; ?></span> </p>
+      <p> Korisničko Ime: <span><?= $fetch_accounts['name']; ?></span> </p>
+      <p> Ukupno članaka : <span><?= $total_admin_posts; ?></span> </p>
       <div class="flex-btn">
          <?php
             if($fetch_accounts['id'] == $admin_id){
          ?>
-            <a href="update_profile.php" class="option-btn" style="margin-bottom: .5rem;">update</a>
+            <a href="update_profile.php" class="option-btn" style="margin-bottom: .5rem;">Izmena</a>
             <form action="" method="POST">
                <input type="hidden" name="post_id" value="<?= $fetch_accounts['id']; ?>" on>
-               <button type="submit" name="delete"onclick="return confirm('delete the account?');" class="delete-btn" style="margin-bottom: .5rem;">delete</button>
+               <button type="submit" name="delete"onclick="return confirm('delete the account?');" class="delete-btn" style="margin-bottom: .5rem;">Obriši</button>
             </form>
          <?php
             }
@@ -93,7 +88,7 @@ if(isset($_POST['delete'])){
    <?php
       }
    }else{
-      echo '<p class="empty">no accounts available</p>';
+      echo '<p class="empty">Ne postoji trenutno ni jedan Admin</p>';
    }
    ?>
 

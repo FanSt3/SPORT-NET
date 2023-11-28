@@ -96,7 +96,7 @@ if(!isset($admin_id)){
             ?>
             <h3><?= $number_of_posts; ?></h3>
             <p>Ukupno korisnika</p>
-            <a href="admin_account.php" class="btn">Pregledajte administratore</a>
+            <a href="admin_accounts.php" class="btn">Pregledajte administratore</a>
         </div>
 
         <div class="box">

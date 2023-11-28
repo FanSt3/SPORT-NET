@@ -27,7 +27,7 @@
     <nav class="navbar">
         <a href="dashboard.php"><i class="fa fa-home"></i><span>Pocetna</span></a>
         <a href="add_posts.php"><i class="fa fa-pen"></i><span>Nov clanak</span></a>
-        <a href="view_post.php"><i class="fa fa-eye"></i><span>Pregledajte clanke</span></a>
+        <a href="view_posts.php"><i class="fa fa-eye"></i><span>Pregledajte clanke</span></a>
         <a href="admin_accounts.php"><i class="fa fa-user"></i><span>Nalozi</span></a>
         <a href="../components/admin_logout.php" onclick="return confirm('da li zelite da se odjavite sa panela?')"><i class="fas fa-right-from-backet"></i><span style="color:var(--red);">Odjavite se</span></a>
     </nav>

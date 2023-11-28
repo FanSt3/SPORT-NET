@@ -5,23 +5,25 @@ include '../components/connect.php';
 session_start();
 
 if(isset($_POST['submit'])){
+
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
-
    $pass = sha1($_POST['pass']);
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
-   $select_admin = $conn->prepare("SELECT * FROM 'admin' WHERE name = ? AND password = ?");
+   $select_admin = $conn->prepare("SELECT * FROM `admin` WHERE name = ? AND password = ?");
    $select_admin->execute([$name, $pass]);
-
+   
    if($select_admin->rowCount() > 0){
       $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
       $_SESSION['admin_id'] = $fetch_admin_id['id'];
-      header('location:dashboard.php');
+      header('../admin/dashboard.php');
    }else{
       $message[] = 'incorrect username or password!';
    }
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Stranica za Prijavu Admina</title>
+   <title>login</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -42,28 +44,43 @@ if(isset($_POST['submit'])){
 <body style="padding-left: 0 !important;">
 
 <?php
-   if(isset($message)){
-      foreach($message as $message){
-         echo '
-         <div class="message">
+if(isset($message)){
+   foreach($message as $message){
+      echo '
+      <div class="message">
          <span>'.$message.'</span>
          <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-      </div>';
-      }
+      </div>
+      ';
    }
+}
 ?>
 
-<!-- Pocetak Sekcije za Prijavu Admina -->
+<!-- admin login form section starts  -->
+
 <section class="form-container">
+
    <form action="" method="POST">
-      <h3>Prijavite se</h3>
-      <p>Podrazumevano ime = <span>admin</span> & lozinka = <span>111</span></p>
-      <input type="text" required placeholder="Unesite korisnicko ime" class="box"  maxlength="20" name="name" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" required placeholder="Unesite lozinku" class="box" maxlenght="20" name="pass" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" name="submit" class="btn" value="Prijavite se">
+      <h3>login now</h3>
+      <p>default username = <span>admin</span> & password = <span>111</span></p>
+      <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="submit" value="login now" name="submit" class="btn">
    </form>
+
 </section>
-<!-- Pocetak Sekcije za Prijavu Admina -->
+
+<!-- admin login form section ends -->
 
 
 
+
+
+
+
+
+
+
+
+</body>
+</html>

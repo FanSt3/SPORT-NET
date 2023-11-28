@@ -451,6 +451,25 @@ section{
    margin-right: .5rem;
 }
 
+.show-posts .search-form{
+   margin-bottom: 2.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: var(--white);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   padding:1.5rem;
+}
+
+.show-posts .box-container .box .icons i{
+   margin-right: .7rem;
+   color: var(--light-color);
+}
+
+.show-posts .box-container .box .icons span{
+   color: var(--main-color);
+}
 .accounts .box-container{
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);

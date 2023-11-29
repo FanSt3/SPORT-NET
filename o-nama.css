@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img, i {
+    user-select: none;
+}
+
+a {
+    color: #001FB9;
+    font-weight: 400;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 200ms ease-in-out, color 200ms ease-in-out, border-radius 250ms ease-out;
+}
+
+a:hover {
+    color: #FFFFFF;
+    border-radius: 0;
+    background-color: #001FB9;
+}
+
+#container, .card {
+    display: flex;
+}
+
+#container {
+    flex-wrap: wrap;
+    padding: 3em;
+}
+
+.card {
+    width: 25%;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+}
+
+.card img {
+    border-radius: 50%;
+}
+
+#container section h2, #container section p {
+    text-align: center;
+}
+
+#container section h2 {
+    color: #111111;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0.5em 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+}
+
+#container section p {
+    color: #808080;
+    line-height: 180%;
+    text-align: justify;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+}
+
+#container section a {
+    display: inline-flex;
+    align-items: center;
+}
+
+#container section b {
+    color: #404040;
+    font-weight: 500;
+}
+
+#container section i {
+    font-size: 0.5rem;
+    margin-left: 0.3em;
+}
+
+@media only screen and (max-width: 1250px) {
+    .card {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .card {
+        width: 100%;
+        padding: 2em 0;
+        flex-direction: row; /* Kako bi se slika pomerila ulevo */
+    }
+
+    #container {
+        padding: 3em 2em;
+    }
+
+    #container section h2 {
+        margin-top: 0;
+        text-align: left;
+    }
+
+    .card img, .img {
+        margin-right: 2em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        flex-direction: column; /* Kako bi se slika pomerila gore */
+    }
+
+    #container section h2 {
+        text-align: center;
+        margin: 0.5em 0;
+    }
+
+    .card img, .img {
+        margin-right: 0;
+    }
+}
